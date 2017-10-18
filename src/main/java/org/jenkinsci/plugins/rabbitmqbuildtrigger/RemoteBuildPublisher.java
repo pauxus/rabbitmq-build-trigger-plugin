@@ -117,14 +117,14 @@ public class RemoteBuildPublisher extends Notifier {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public BuildStepMonitor getRequiredMonitorService() {
         return BuildStepMonitor.NONE;
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
@@ -180,7 +180,7 @@ public class RemoteBuildPublisher extends Notifier {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     public DescriptorImpl getDescriptor() {
@@ -196,7 +196,7 @@ public class RemoteBuildPublisher extends Notifier {
     public static final class DescriptorImpl extends BuildStepDescriptor<Publisher> {
 
         /**
-         * @inheritDoc
+         * {@inheritDoc}
          */
         @Override
         public boolean isApplicable(Class<? extends AbstractProject> project) {
@@ -204,7 +204,7 @@ public class RemoteBuildPublisher extends Notifier {
         }
 
         /**
-         * @inheritDoc
+         * {@inheritDoc}
          */
         @Override
         public String getDisplayName() {
