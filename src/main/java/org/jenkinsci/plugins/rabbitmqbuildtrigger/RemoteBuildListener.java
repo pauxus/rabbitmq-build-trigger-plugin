@@ -97,6 +97,7 @@ public class RemoteBuildListener extends MessageQueueListener {
                     Pattern targetProject = Pattern.compile(json.getString(KEY_PROJECT));
                     String messageToken = json.getString(KEY_TOKEN);
                     JSONArray parameters = json.has(KEY_PARAMETER) ? json.getJSONArray(KEY_PARAMETER) : null;
+                    String reason = json.has(KEY_REASON) ? json.getString(KEY_REASON) : null;
 
                     LOGGER.log(Level.FINE, "Received message for project: {0}", targetProject.toString());
 
@@ -108,7 +109,7 @@ public class RemoteBuildListener extends MessageQueueListener {
 
                         if (t.getRemoteBuildToken().equals(messageToken) && targetProject.matcher(t.getProjectName()).matches()) {
                             LOGGER.log(Level.FINE, "Triggering project: {0}", t.getProjectName());
-                            t.scheduleBuild(queueName, parameters);
+                            t.scheduleBuild(queueName, reason, parameters);
                         }
                     }
                 } catch (JSONException e) {
